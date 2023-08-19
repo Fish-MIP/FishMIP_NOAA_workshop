@@ -1,7 +1,8 @@
 #Function checking that all packages used in repository are installed
 checking_libraries <- function(){
   #List of packages needed to run all notebooks in repository
-  packages_required <- c("reticulate", "tidyverse", "metR", "sf", "rnaturalearth", "leaflet", "lubridate", "raster")
+  packages_required <- c("reticulate", "tidyverse", "metR", "sf", "rnaturalearth", 
+                         "leaflet", "lubridate", "raster", "PCICt")
   
   #Checking packages installed in local machine
   packages_local <- installed.packages()
