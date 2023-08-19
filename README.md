@@ -64,3 +64,24 @@ We have included an environment file in this repository, which will allow you to
   
 5. Finally, you can check that you have installed everything correctly by typing the following: `conda activate fishmip`. You should not get any errors or messages if everything has been successful. You can now deactivate this environment by typing `conda deactivate`.  
   
+## Linking `Python` to `R`
+As mentioned above, we will use the `reticulate` package to call `Python` during an `R` session. To make it easy for `R` to find `Python`, we will provide the full path where `Python` and the libraries we need have been installed (also known as an environment). To do get this path, we will follow these steps:  
+  
+1. Open a *Terminal* window if you use macOS or Linux. If you use Windows, search for *Anaconda Prompt* in the Start menu and open it.  
+  
+2. Type `conda env list`, which will list all environments installed in your local machine and the full paths where they are stored. The output should look like this:  
+  
+```bash
+# conda environments:
+#
+base                  *  C:\Users\user_name\AppData\Local\miniconda3
+fishmip                  C:\Users\user_name\AppData\Local\miniconda3\envs\fishmip
+```
+  
+3. Copy the name of the path next to `fishmip`, which is the name of the environment we previously installed.  
+  
+4. In RStudio go to the *Files* tab (by default is located on the bottom right), find the `.Rprofile` file and click to open it.  
+  
+5. Replace `paste_your_path_here` with the full file path you copies in step 3. Make sure you keep the quotation marks. The contents of the `.Rprofile` should look like this: `RETICULATE_PYTHON="C:\Users\user_name\AppData\Local\miniconda3\envs\fishmip"`.  
+  
+
