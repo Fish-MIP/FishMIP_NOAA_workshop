@@ -58,9 +58,11 @@ We have included an environment file in this repository, which will allow you to
   
 2. Open a *Terminal* window if you use macOS or Linux. If you use Windows, search for *Anaconda Prompt* in the Start menu and open it.  
   
-3. Check the current location of your *Terminal* or *Anaconda Prompt*. This should be the only line in this window, which shows the location of your `home` directory, and it should look something like this: `C:/Users/user_name/`. If the current location of your window is different to the path from step 1, then navigate to the repository folder. You can do this with the `cd` (changing directory) command. For example: `cd C:/Users/user_name/Documents/FishMIP_NOAA_workshop`.  
+3. Install `conda-lock` with the following line: `conda install -c conda-forge conda-lock`.  
   
-4. Once you are in the repository folder, you will install all `Python` libraries by typing the following command: `conda env create --file conda-lock.yml --name fishmip` and press `Enter`. Installation will start and this make take a few minutes.  
+4. Check the current location of your *Terminal* or *Anaconda Prompt*. This should be the only line in this window, which shows the location of your `home` directory, and it should look something like this: `C:/Users/user_name/`. If the current location of your window is different to the path from step 1, then navigate to the repository folder. You can do this with the `cd` (changing directory) command. For example: `cd C:/Users/user_name/Documents/FishMIP_NOAA_workshop`.   
+  
+5. Once you are in the repository folder, you will install all `Python` libraries by typing the following command: `conda-lock install --name fishmip conda-lock.yml` and press `Enter`. Installation will start and this make take a few minutes.  
   
 5. Finally, you can check that you have installed everything correctly by typing the following: `conda activate fishmip`. You should not get any errors or messages if everything has been successful. You can now deactivate this environment by typing `conda deactivate`.  
   
@@ -82,6 +84,6 @@ fishmip                  C:\Users\user_name\AppData\Local\miniconda3\envs\fishmi
   
 4. In RStudio go to the *Files* tab (by default is located on the bottom right), find the `.Rprofile` file and click to open it.  
   
-5. Replace `paste_your_path_here` with the full file path you copies in step 3. Make sure you keep the quotation marks. The contents of the `.Rprofile` should look like this: `RETICULATE_PYTHON="C:\Users\user_name\AppData\Local\miniconda3\envs\fishmip"`.  
+5. Replace `paste_your_path_here` with the full file path you copied in step 3. Make sure you keep the quotation marks. The contents of the `.Rprofile` should look like this: `RETICULATE_PYTHON="C:\Users\user_name\AppData\Local\miniconda3\envs\fishmip"`.  
   
 
