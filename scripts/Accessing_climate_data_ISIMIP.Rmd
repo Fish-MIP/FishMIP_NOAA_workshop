@@ -109,6 +109,7 @@ for datasets in query['results']:
   for paths in datasets['files']:
     urls.append(paths['file_url'])
     urls_sub.append(paths['path'])
+
 ```
   
 ### Extracting data for a region
@@ -120,6 +121,7 @@ region_shp <- read_sf("../data/HawaiianLongline_BordersClip.shp")
 #Getting bounding box (max and min coordinates)
 region_bbox <- st_bbox(region_shp)
 bbox <- c(region_bbox$ymin, region_bbox$ymax, region_bbox$xmin, region_bbox$xmax)
+bbox
 ```
   
 
@@ -128,6 +130,7 @@ If you are looking for a subset of the global dataset, you can set a bounding bo
 ```{python}
 #We use the cutout function to create a bounding box for our dataset
 HI_data_URL = client.cutout(urls_sub, bbox = r.bbox)
+HI_data_URL
 ```
 
 ## Downloading data to disk
@@ -151,7 +154,6 @@ Use the `client.download()` function to save data to disk.
 client.download(url = HI_data_URL['file_url'], \
                 path = '../data/', validate = False, \
                 extract = True)
-
 ```
   
 To download global data we use the same function, but we need to point at the correct variable storing the URL to the global dataset.  

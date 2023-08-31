@@ -182,7 +182,11 @@ region_shp <- read_sf("../data/HawaiianLongline_BordersClip.shp")
 #Getting bounding box (max and min coordinates)
 region_bbox <- st_bbox(region_shp)
 bbox <- c(region_bbox$ymin, region_bbox$ymax, region_bbox$xmin, region_bbox$xmax)
+bbox
 ```
+
+    ## ymin ymax xmin xmax 
+    ##    0   40 -180 -125
 
 If you are looking for a subset of the global dataset, you can set a
 bounding box and only extract data for your area of interest. In this
@@ -191,7 +195,10 @@ case, we will extract information for the Southern Ocean only.
 ``` python
 #We use the cutout function to create a bounding box for our dataset
 HI_data_URL = client.cutout(urls_sub, bbox = r.bbox)
+HI_data_URL
 ```
+
+    ## {'file_name': 'isimip-download-56d107d72b2123e141801f22b381f100df61524e.zip', 'file_url': 'https://files.isimip.org/api/output/isimip-download-56d107d72b2123e141801f22b381f100df61524e.zip', 'id': '56d107d72b2123e141801f22b381f100df61524e', 'job_url': 'https://files.isimip.org/api/v1/56d107d72b2123e141801f22b381f100df61524e', 'meta': {'created_files': 1, 'total_files': 1}, 'status': 'finished', 'ttl': 604800}
 
 ## Downloading data to disk
 
@@ -255,8 +262,8 @@ GlanceNetCDF(data_file)
     ## 
     ## 
     ## ----- Dimensions ----- 
-    ##   lat: 40 values from 0.5 to 39.5 degrees_north
-    ##   lon: 55 values from -179.5 to -125.5 degrees_east
+    ##   lat: 160 values from 0.125 to 39.875 degrees_north
+    ##   lon: 220 values from -179.875 to -125.125 degrees_east
     ##   time: 600 values from 720 to 1319 months since 1901-1-1 00:00:00
 
 This output, however, does not give you information about
@@ -337,12 +344,12 @@ head(sst_hi)
     ## # A tibble: 6 × 4
     ##       x     y value date      
     ##   <dbl> <dbl> <dbl> <date>    
-    ## 1 -180.  39.5  11.4 1961-01-01
-    ## 2 -180.  39.5  10.7 1961-02-01
-    ## 3 -180.  39.5  10.4 1961-03-01
-    ## 4 -180.  39.5  10.5 1961-04-01
-    ## 5 -180.  39.5  12.0 1961-05-01
-    ## 6 -180.  39.5  14.8 1961-06-01
+    ## 1 -180.  39.9  10.7 1961-01-01
+    ## 2 -180.  39.9  10.3 1961-02-01
+    ## 3 -180.  39.9  10.1 1961-03-01
+    ## 4 -180.  39.9  10.4 1961-04-01
+    ## 5 -180.  39.9  11.7 1961-05-01
+    ## 6 -180.  39.9  14.3 1961-06-01
 
 ## Calculating climatology
 
