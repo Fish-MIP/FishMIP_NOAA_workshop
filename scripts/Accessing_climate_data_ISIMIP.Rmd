@@ -42,7 +42,9 @@ We can call the `isimip-client` library and load it into `R` as shown below. We 
 #Loading isimip-client into R
 cl <- import("isimip_client.client")
 ```
-
+  
+However, in this notice, we will show use how to use the library in `Python`.  
+  
 ```{python}
 #Loading the library
 import isimip_client.client as cl
@@ -124,15 +126,22 @@ bbox <- c(region_bbox$ymin, region_bbox$ymax, region_bbox$xmin, region_bbox$xmax
 bbox
 ```
   
-
-If you are looking for a subset of the global dataset, you can set a bounding box and only extract data for your area of interest. In this case, we will extract information for the Southern Ocean only.
-
+If you are looking for a subset of the global dataset, you can set a bounding box and only extract data for your area of interest. In this case, we will only extract information for the Hawaiian Longline fisheries polygon. But note that you can provide the bounding box manually, as long as it is provided in the following order: minimum latitude, maximum latitude, minimum longitude and maximum longitude.    
+  
 ```{python}
 #We use the cutout function to create a bounding box for our dataset
 HI_data_URL = client.cutout(urls_sub, bbox = r.bbox)
 HI_data_URL
 ```
-
+  
+Before you are able to download the data for our region using the function `cutout` above, we will check its status as shown below.  
+  
+```{python}
+HI_data_URL['status']
+```
+  
+If the status printed above is `finished`, then we can proceed to download the data. If it has failed, you will need to ensure you provided the bounding box in the correct order (minimum latitude, maximum latitude, minimum longitude and maximum longitude). Otherwise, if the status is `queued`, then the data extraction is being processed and you will be able to download the data as soon as the status changes to `finished`.  
+  
 ## Downloading data to disk
 We will download the data and store it into the `data` folder. First we will make sure a `data` folder exists and if it does not exist, we will create one.
 

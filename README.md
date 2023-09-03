@@ -86,4 +86,7 @@ fishmip                  C:\Users\user_name\AppData\Local\miniconda3\envs\fishmi
   
 5. Replace `paste_your_path_here` with the full file path you copied in step 3. Make sure you keep the quotation marks. The contents of the `.Rprofile` should look like this: `RETICULATE_PYTHON="C:\Users\user_name\AppData\Local\miniconda3\envs\fishmip"`.  
   
-
+**Note:** If you encounter an error when running `Python` in the `Rmarkdown`, you may need to point RStudio to the `Python` interpreter. To do this, head to the `Tools > Project Options...`. On the left panel, click on `Python` and then on the right, click on the `Select...` button. This will open a new window, click on the `Conda environment` tab and select the line that contains the word `fishmip`. Press `Select` and then `OK`. If you are prompted to restart RStudio, do so to allow changes to take effect.     
+  
+## Questions or feedback
+If you have any questions/issues/feedback about this notebook, please create an issue in this repository. 
